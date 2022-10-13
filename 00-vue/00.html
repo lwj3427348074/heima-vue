@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function Star(uname, age) {
+        //     this.uname = uname
+        //     this.age = age;
+        // }
+        // var that;
+        // Star.prototype.sing = function () {
+        //     console.log('我会唱歌');
+        //     that = this;
+        // }
+        // var ldh = new Star('刘德华', 18);
+        // var zxy = new Star('张学友', 20);
+        // ldh.sing();
+        // console.log(ldh);
+        // zxy.sing();
+        // console.log(zxy);
+        // console.log(that === zxy);
+        // console.log(ldh === zxy);
+        // console.log(that === ldh);
+        // console.log(that);
+
+
+        // const obj = { name: '张三' }
+        // console.log(obj);
+
+        // function fn() {
+        //     console.log(this);
+        //     return () => {
+        //         console.log(this);
+        //     }
+        // }
+
+        // const resFn = fn.call(obj);
+        // resFn()
+        var age = 100
+        var obj = {
+            age: 20,
+            say: () => {
+                console.log(this.age);
+            }
+
+        }
+        obj.say()
+
+        console.log(obj.age);
+        console.log(obj);
+    </script>
+</body>
+
+</html>
