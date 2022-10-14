@@ -14,5 +14,9 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         //生成的文件名
         filename: 'bundle.js'
+    },
+
+    devServer: {
+        static: './src',
     }
 }
