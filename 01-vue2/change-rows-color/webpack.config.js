@@ -18,6 +18,10 @@
 
 //url-loader和file-loader
 
+//babel-loader , babel/core 和 babel/plugin-proposal-decorators :用来处理高级js
+
+//clean-webpack-plugin:自动清理掉dist目录中的旧文件
+
 
 const path = require('path')
 //1.导入html-webpack-plugin这个插件,得到插件的构造函数
@@ -30,10 +34,14 @@ const htmlPlugin = new HtmlPlugin({
     filename: './index.html'
 })
 
+//左侧的{}是解构赋值
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+
+
 //使用Node.js中的导出语法,向外导出一个webpack的配置对象
 module.exports = {
-    //代表webpack运行的模式,可选值有两个 development 和 production
-    mode: 'development',
+    //代表webpack运行的模式,可选值有两个 development 和 production,webpack里面设置的优先级更高
+    // mode: 'development',
 
     // entry: 指定要处理那个文件
     entry: path.join(__dirname, './src/index1.js'),
@@ -43,7 +51,7 @@ module.exports = {
         //存放的目录
         path: path.resolve(__dirname, 'dist'),
         //生成的文件名
-        filename: 'bundle.js'
+        filename: 'js/bundle.js'
     },
 
     //Cannot GET/ 配置
@@ -52,7 +60,7 @@ module.exports = {
     // },
 
     //3.插件的数组,将来webpack在运行时,会加载并调用这些插件
-    plugins: [htmlPlugin],
+    plugins: [htmlPlugin, new CleanWebpackPlugin()],
     //devServer节点,
     devServer: {
         //自动打开浏览器
@@ -69,8 +77,11 @@ module.exports = {
             { test: /\.css$/, use: ['style-loader', 'css-loader'] },
             //处理 .less文件的loader
             { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] },
-            //处理 图片文件的loader
-            { test: /\.jpg|png|gif$/, use: 'url-loader' }
+            //处理 图片文件的loader,?limit=设置文件大小,大于=>原图片,小于=>base64,outputPath输出路径
+            //在配置url-loader的时候,多个参数直接使用&符号进行分隔
+            { test: /\.jpg|png|gif$/, use: 'url-loader?limit=500&outputPath=images' },
+            //使用babel-loader处理高级的js语法 ,排除node_modules目录中的js文件
+            { test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ },
         ]
     }
 }
