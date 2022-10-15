@@ -36,6 +36,7 @@ const htmlPlugin = new HtmlPlugin({
 
 //左侧的{}是解构赋值
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const { resolve } = require('path')
 
 
 //使用Node.js中的导出语法,向外导出一个webpack的配置对象
@@ -90,5 +91,12 @@ module.exports = {
             //使用babel-loader处理高级的js语法 ,排除node_modules目录中的js文件
             { test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ },
         ]
+    },
+
+    resolve: {
+        alias: {
+            //告诉webpack程序员写的代码中@符号表示src这一层目录
+            '@': path.join(__dirname, './src/')
+        }
     }
 }

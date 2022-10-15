@@ -3,12 +3,15 @@ import $ from 'jquery'
 
 //导入样式(在webpack中,一切皆模块,都可以通过ES6导入语法进行导入和使用)
 //如果某个模块中,使用from接收到的成员为undefined,则没必要进行接收
-import './css/index.css'
-import './css/index.less'
+import '@/css/index.css'
+import '@/css/index.less'
+
+//导入info.js
+import inf from './js/test/info.js'
 
 
 //1.导入图片,得到图片文件
-import logo from './images/logo.png'
+import logo from '@/images/logo.png'
 //2.给img标签的src动态赋值,attr:属性
 $('.box').attr('src', logo)
 
