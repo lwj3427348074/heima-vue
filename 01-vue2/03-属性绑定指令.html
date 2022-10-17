@@ -11,18 +11,18 @@
 <body>
     <!-- 希望vue能控制下面的这个div,帮我们把数据填充到div内部 -->
     <div id="app">
-        <p v-text="username"></p>
-        <p v-text="gender">性别</p>
+        <input type="text" v-bind:placeholder="tips">
 
         <hr>
 
-        <p>姓名:{{username}}</p>
-        <p>性别:{{gender}}</p>
+        <!-- vue规定v-bind:指令可以简写为: -->
+        <img :src="photo" alt="" style="width: 150px;">
 
         <hr>
-        <div v-text="info"></div>
-        <div>{{info}}</div>
-        <div v-html="info"></div>
+
+        <div>1+2的结果是:{{1+2}}</div>
+        <div>{{tips}}翻转的结果是:{{tips.split('').reverse().join('')}}</div>
+        <div :title="'box'+index">这是一个div</div>
     </div>
 
 
@@ -36,9 +36,9 @@
             el: '#app',
             //data对象就是要渲染到页面上的数据
             data: {
-                username: 'zhangsan',
-                gender: '女',
-                info: '<h4 style="color:red;font-weight:blod;">欢迎大家来学vue</h4>'
+                tips: '请输入用户名',
+                photo: 'https://v2.cn.vuejs.org/images/logo.svg',
+                index: 3,
             }
         })
     </script>

@@ -11,18 +11,7 @@
 <body>
     <!-- 希望vue能控制下面的这个div,帮我们把数据填充到div内部 -->
     <div id="app">
-        <p v-text="username"></p>
-        <p v-text="gender">性别</p>
-
-        <hr>
-
-        <p>姓名:{{username}}</p>
-        <p>性别:{{gender}}</p>
-
-        <hr>
-        <div v-text="info"></div>
-        <div>{{info}}</div>
-        <div v-html="info"></div>
+        <input type="text" @keyup.esc="clearInput" @keyup.enter="commitAjax">
     </div>
 
 
@@ -36,9 +25,15 @@
             el: '#app',
             //data对象就是要渲染到页面上的数据
             data: {
-                username: 'zhangsan',
-                gender: '女',
-                info: '<h4 style="color:red;font-weight:blod;">欢迎大家来学vue</h4>'
+            },
+            methods: {
+                clearInput(e) {
+                    console.log('ok');
+                    e.target.value = ''
+                },
+                commitAjax(e) {
+                    console.log('Ajax');
+                }
             }
         })
     </script>

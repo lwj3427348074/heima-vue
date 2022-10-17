@@ -11,18 +11,25 @@
 <body>
     <!-- 希望vue能控制下面的这个div,帮我们把数据填充到div内部 -->
     <div id="app">
-        <p v-text="username"></p>
-        <p v-text="gender">性别</p>
+        <p>用户的名字是:{{username}}</p>
+        <input type="text" v-model="username">
 
         <hr>
 
-        <p>姓名:{{username}}</p>
-        <p>性别:{{gender}}</p>
+        <input type="text" :value="username">
 
         <hr>
-        <div v-text="info"></div>
-        <div>{{info}}</div>
-        <div v-html="info"></div>
+
+        <div v-model="username"></div>
+
+        <hr>
+
+        <select v-model="city">
+            <option value="">请选择城市</option>
+            <option value="1">北京</option>
+            <option value="2">上海</option>
+            <option value="3">广东</option>
+        </select>
     </div>
 
 
@@ -37,8 +44,7 @@
             //data对象就是要渲染到页面上的数据
             data: {
                 username: 'zhangsan',
-                gender: '女',
-                info: '<h4 style="color:red;font-weight:blod;">欢迎大家来学vue</h4>'
+                city: '2'
             }
         })
     </script>

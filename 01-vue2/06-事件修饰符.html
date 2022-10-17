@@ -11,18 +11,13 @@
 <body>
     <!-- 希望vue能控制下面的这个div,帮我们把数据填充到div内部 -->
     <div id="app">
-        <p v-text="username"></p>
-        <p v-text="gender">性别</p>
+        <a href="http://www.baidu.com" @click.prevent="show">跳转到百度首页</a>
 
         <hr>
 
-        <p>姓名:{{username}}</p>
-        <p>性别:{{gender}}</p>
-
-        <hr>
-        <div v-text="info"></div>
-        <div>{{info}}</div>
-        <div v-html="info"></div>
+        <div style="height: 150px;background-color:pink;padding-left:100px;line-height:150px" @click="divHandler">
+            <button @click.stop="btnHandler">按钮</button>
+        </div>
     </div>
 
 
@@ -36,9 +31,20 @@
             el: '#app',
             //data对象就是要渲染到页面上的数据
             data: {
-                username: 'zhangsan',
-                gender: '女',
-                info: '<h4 style="color:red;font-weight:blod;">欢迎大家来学vue</h4>'
+                username: 'zhangsan'
+            },
+            methods: {
+                show(e) {
+                    // e.preventDefault()
+                    console.log('点击了链接');
+                },
+                divHandler() {
+                    console.log('divHandler');
+                },
+                btnHandler(e) {
+                    // e.stopPropagation()
+                    console.log('btnHandler');
+                }
             }
         })
     </script>

@@ -11,18 +11,17 @@
 <body>
     <!-- 希望vue能控制下面的这个div,帮我们把数据填充到div内部 -->
     <div id="app">
-        <p v-text="username"></p>
-        <p v-text="gender">性别</p>
+        <!-- 动态创建和移除 -->
+        <p v-if="flag">这是被v-if控制的元素</p>
+        <!-- dispaly:none -->
+        <p v-show="flag">这是被v-show控制的元素</p>
 
         <hr>
 
-        <p>姓名:{{username}}</p>
-        <p>性别:{{gender}}</p>
-
-        <hr>
-        <div v-text="info"></div>
-        <div>{{info}}</div>
-        <div v-html="info"></div>
+        <div v-if="type==='A'">优秀</div>
+        <div v-else if="type==='B'">良好</div>
+        <div v-else if="type==='C'">一般</div>
+        <div v-else>差</div>
     </div>
 
 
@@ -36,9 +35,9 @@
             el: '#app',
             //data对象就是要渲染到页面上的数据
             data: {
-                username: 'zhangsan',
-                gender: '女',
-                info: '<h4 style="color:red;font-weight:blod;">欢迎大家来学vue</h4>'
+                //如果flag为true,则显示被控制的元素,false则隐藏被控制的元素
+                flag: true,
+                type: 'A'
             }
         })
     </script>
