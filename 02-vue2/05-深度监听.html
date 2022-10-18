@@ -26,7 +26,17 @@
 
             //定义对象格式的监听器
             watch: {
-                info(newVal) {
+                // info: {
+                //     handler(newVal) {
+                //         console.log(newVal);
+                //     },
+                //     //开启深度监听,只要对象属性变化,就会触发监听器
+                //     deep: true
+                // }
+
+
+                //如果要监听的是对象的子属性的变化,则必须包裹一成单引号
+                'info.username'(newVal) {
                     console.log(newVal);
                 }
             }
