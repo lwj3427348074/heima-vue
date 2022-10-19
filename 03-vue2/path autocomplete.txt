@@ -1,0 +1,6 @@
+//导入文件时是否携带文件的扩展名
+    "path-autocomplete.extensionOnImport": true,
+    //配置@的路径提示
+    "path-autocomplete.pathMappings": {
+        "@": "${folder}/src"
+    },
