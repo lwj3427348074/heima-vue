@@ -22,12 +22,10 @@
       <template #footer>
         <div>作者:拼多多</div>
       </template>
-
     </Article>
     <hr />
 
-    <div class=" box" style="display: none;">
-
+    <div class="box" style="display: none;">
       <!-- 渲染 Left 组件和 Right 组件 -->
       <Left>
         <!-- 默认情况下,在使用组件的时候,提供的内容都会被填充到名字为default的插槽中 -->
@@ -40,24 +38,25 @@
           <p>这是Left里面的p标签</p>
         </template>
       </Left>
-
     </div>
   </div>
 </template>
 
 <script>
-import Left from '@/components/Left.vue'
-import Right from '@/components/Right.vue'
-import Article from '@/components/Article.vue'
+import Left from "@/components/Left.vue";
+import Right from "@/components/Right.vue";
+import Article from "@/components/Article.vue";
 
 export default {
   data() {
     return {
-      color: 'blue'
-    }
+      color: "blue"
+    };
   },
   components: {
-    Left, Right, Article
+    Left,
+    Right,
+    Article
   },
   directives: {
     //定义名为color的指令,指向一个配置选项
@@ -77,11 +76,11 @@ export default {
     //   }
     // }
     color(el, binding) {
-      console.log('v-color的bind或update函数');
-      el.style.color = binding.value
+      console.log("v-color的bind或update函数");
+      el.style.color = binding.value;
     }
   }
-}
+};
 </script>
 
 <style lang="less">
