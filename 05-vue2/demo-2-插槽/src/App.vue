@@ -1,7 +1,9 @@
 <template>
   <div class="app-container">
-    <h1 v-color>App 根组件</h1>
+    <h1 v-color="color">App 根组件</h1>
+    <p v-color="'red'">测试</p>
 
+    <button @click="color = 'green'">改变color的颜色值</button>
     <Article>
       <template #title>
         <h3>一首诗</h3>
@@ -49,19 +51,34 @@ import Right from '@/components/Right.vue'
 import Article from '@/components/Article.vue'
 
 export default {
-
+  data() {
+    return {
+      color: 'blue'
+    }
+  },
   components: {
     Left, Right, Article
   },
   directives: {
     //定义名为color的指令,指向一个配置选项
-    color: {
-      //当指令第一次被绑定到元素上的时候,会立即触发bind函数
-      //形参中的el表示当前指令所绑定到的那个DOM对象
-      bind(el) {
-        console.log('v-color的bind函数');
-        el.style.color = 'red'
-      }
+    // color: {
+    //   //当指令第一次被绑定到元素上的时候,会立即触发bind函数
+    //   //形参中的el表示当前指令所绑定到的那个DOM对象
+    //   bind(el, binding) {
+    //     console.log('v-color的bind函数');
+    //     // console.log(binding);
+    //     el.style.color = binding.value
+    //   },
+    //   //在DOM更新的时候,会触发update函数
+    //   update(el, binding) {
+    //     console.log('v-color的update函数');
+    //     // console.log(binding);
+    //     el.style.color = binding.value
+    //   }
+    // }
+    color(el, binding) {
+      console.log('v-color的bind或update函数');
+      el.style.color = binding.value
     }
   }
 }

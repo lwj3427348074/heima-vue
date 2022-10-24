@@ -1,7 +1,7 @@
 <template>
     <div class="article-container">
         <!-- 文章的标题 -->
-        <div class="header-box">
+        <div class="header-box" v-color="'red'">
             <slot name="title">
 
             </slot>
