@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <h1>App 根组件</h1>
+    <h1 v-color>App 根组件</h1>
 
     <Article>
       <template #title>
@@ -52,6 +52,17 @@ export default {
 
   components: {
     Left, Right, Article
+  },
+  directives: {
+    //定义名为color的指令,指向一个配置选项
+    color: {
+      //当指令第一次被绑定到元素上的时候,会立即触发bind函数
+      //形参中的el表示当前指令所绑定到的那个DOM对象
+      bind(el) {
+        console.log('v-color的bind函数');
+        el.style.color = 'red'
+      }
+    }
   }
 }
 </script>

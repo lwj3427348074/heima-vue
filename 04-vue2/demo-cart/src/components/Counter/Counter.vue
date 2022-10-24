@@ -3,7 +3,7 @@
     <!-- 减 1 的按钮 -->
     <button type="button" class="btn btn-light btn-sm" @click="sub">-</button>
     <!-- 购买的数量 -->
-    <span class="number-box">{{num}}</span>
+    <span class="number-box">{{ num }}</span>
     <!-- 加 1 的按钮 -->
     <button type="button" class="btn btn-light btn-sm" @click="add">+</button>
   </div>
