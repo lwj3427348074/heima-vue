@@ -1,0 +1,1 @@
+export default ['/home','/home/users','home/rights','home/goods','home/settings','home/orders','home/userinfo','home/userinfo/1','home/userinfo/2','home/userinfo/3',]
